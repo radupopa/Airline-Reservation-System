@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyArc - Airline Reservation System", "FlyArc - Airline Reservation System\FlyArc - Airline Reservation System.csproj", "{AC846D95-AC5C-49C3-830B-7834602F5F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyArc - Airline Reservation System", "FlyArc - Airline Reservation System\FlyArc - Airline Reservation System.csproj", "{AC846D95-AC5C-49C3-830B-7834602F5F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyArcARS.ApplicationLogic", "FlyArcARS.ApplicationLogic\FlyArcARS.ApplicationLogic.csproj", "{9909301D-5D7F-4DF6-95BC-A1E895279781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyArcARS.EFDataAccess", "FlyArcARS.EFDataAccess\FlyArcARS.EFDataAccess.csproj", "{F128F72E-2C57-4F9D-9AF4-9F0E2C8F70A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{AC846D95-AC5C-49C3-830B-7834602F5F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC846D95-AC5C-49C3-830B-7834602F5F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC846D95-AC5C-49C3-830B-7834602F5F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9909301D-5D7F-4DF6-95BC-A1E895279781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9909301D-5D7F-4DF6-95BC-A1E895279781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9909301D-5D7F-4DF6-95BC-A1E895279781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9909301D-5D7F-4DF6-95BC-A1E895279781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F128F72E-2C57-4F9D-9AF4-9F0E2C8F70A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F128F72E-2C57-4F9D-9AF4-9F0E2C8F70A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F128F72E-2C57-4F9D-9AF4-9F0E2C8F70A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F128F72E-2C57-4F9D-9AF4-9F0E2C8F70A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

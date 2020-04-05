@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using FlyArc___Airline_Reservation_System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FlyArcARS.EFDataAccess;
 
 namespace FlyArc___Airline_Reservation_System
 {
@@ -37,6 +38,11 @@ namespace FlyArc___Airline_Reservation_System
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<FlyArcDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
