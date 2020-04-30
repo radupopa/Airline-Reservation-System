@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FlyArcARS.ApplicationLogic.Data
+namespace FlyArc - Airline Reservation System.Models.Flight
 {
-    public class Ticket
-    {
-        public Guid TicketId { get; set; }
+    public class FlightAddTicketViewModel
+{
         public string PassengerFirstName { get; set; }
         public string PassengerLastName { get; set; }
         public string Type { get; set; }
-    }   
+}
 }

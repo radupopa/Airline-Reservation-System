@@ -13,6 +13,9 @@ using FlyArc___Airline_Reservation_System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FlyArcARS.EFDataAccess;
+using FlyArcARS.ApplicationLogic.Abstractions;
+using FlyArcARS.ApplicationLogic.Services;
+using CustomerManager.ApplicationLogic.Services;
 
 namespace FlyArc___Airline_Reservation_System
 {
@@ -45,6 +48,20 @@ namespace FlyArc___Airline_Reservation_System
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IFlightRepository, FlightRepository>();
+            services.AddScoped<IAdministratorRepository, AdministratorRepository>();
+
+            services.AddScoped<CustomerService>();
+            services.AddScoped<AdminService>();
+            services.AddScoped<FlightService>();
+
+
+
+            services.AddControllersWithViews();
+            services.AddRazorPages()
+                    .AddRazorRuntimeCompilation();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

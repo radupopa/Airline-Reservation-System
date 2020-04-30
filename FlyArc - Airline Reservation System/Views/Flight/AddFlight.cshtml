@@ -1,0 +1,65 @@
+﻿@model FlightAddTicketViewModel;
+@{
+    ViewData["Title"] = "AddFlight";
+}
+<h1>AddFlight</h1>
+<form asp-action="AddFlight" method="post">
+    <div class="row">
+        <div class="col-2">
+            NumberOfSeats
+        </div>
+        <div class="col-10">
+            <input class="form-control" type="text" asp-for="Numberofseats" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Name
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                   asp-for="Name" />
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Source
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                   asp-for="Source" />
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Destination
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                   asp-for="Destionation" />
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Time
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                   asp-for="Time" />
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+﻿@model FlyArc - Airline Reservation System.Models.Flight.FlightTicketsViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+@foreach (var course in Model.Flight)
+{
+    <div>
+        @Flight.NumberofSeats
+    </div>
+    <div>
+        @Flight.Name
+    </div>
+    <div>
+        @Flight.Source
+        </div>
+        <div>
+            @Flight.Destination
+        </div>
+        <div>
+            @Flight.Time
+        </div>
+        }
+        <a href='@Url.Action("AddFlight", "Flight")'>Add Flight</a>

@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FlyArcARS.ApplicationLogic",
+    "\\FlyArcARS.ApplicationLogic\\Data",
+    "\\FlyArcARS.ApplicationLogic\\FlyArc - Airline Reservation System",
+    "\\FlyArcARS.EFDataAccess"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\FlyArc - Airline Reservation System.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,19 @@
+﻿@model FlyArc - Airline Reservation System.Models.Administrator.AdministratorCustomerViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+@foreach (var course in Model.Flight)
+{
+    <div>
+        @Administrator.FullName
+    </div>
+    <div>
+        @Administrator.UserName
+    </div>
+    <div>
+        @Administrator.Password
+    </div>
+
+}
+<a href='@Url.Action("AddCustomer", "Administrator")'>Add Customer</a>

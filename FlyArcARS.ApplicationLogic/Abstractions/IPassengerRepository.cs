@@ -5,8 +5,7 @@ using FlyArcARS.ApplicationLogic.Data;
 
 namespace FlyArcARS.ApplicationLogic.Abstractions
 {
-    public interface IFlightRepository: IRepository<Flight>
+    interface IPassengerRepository : IRepository<Passenger>
     {
-        Flight GetFlightByFlightId(Guid ticketId);
     }
 }

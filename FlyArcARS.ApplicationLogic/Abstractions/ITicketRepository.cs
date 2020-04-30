@@ -7,6 +7,6 @@ namespace FlyArcARS.ApplicationLogic.Abstractions
 {
     public interface ITicketRepository: IRepository<Ticket>
     {
-        Ticket GetTicket(Customer customer);
+        Ticket GetTicket(Passenger passenger);
     }
 }

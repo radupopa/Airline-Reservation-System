@@ -5,7 +5,8 @@ using FlyArcARS.ApplicationLogic.Data;
 
 namespace FlyArcARS.ApplicationLogic.Abstractions
 {
-    interface ICustomerRepository: IRepository<Customer>
+    public interface ICustomerRepository: IRepository<Customer>
     {
+        Customer GetCustomerByUserId(Guid userId);
     }
 }
