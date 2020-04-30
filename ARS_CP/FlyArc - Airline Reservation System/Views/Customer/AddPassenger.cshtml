@@ -1,0 +1,88 @@
+﻿@model CustomerAddPassengerViewModel;
+@{
+    ViewData["Title"] = "AddPassenger";
+}
+<h1>AddPassenger</h1>
+<form asp-action="AddPassenger" method="post">
+
+    <div class="row">
+        <div class="col-2">
+            Passenger First Name
+        </div>
+        <div class="col-10">
+            <input class="form-control" type="text" asp-for="FirstName" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Last Name
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="LastName"/>
+    
+           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Mail
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="Mail"/>
+    
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Address
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="Address"/>
+    
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            City
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="City"/>
+    
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Country
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="Country"/>
+    
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Age
+        </div>
+        <div class="col-10">
+            <input class="form-control"
+                      asp-for="Age"/>
+    
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
