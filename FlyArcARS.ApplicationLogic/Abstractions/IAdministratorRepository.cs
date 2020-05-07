@@ -5,7 +5,8 @@ using FlyArcARS.ApplicationLogic.Data;
 
 namespace FlyArcARS.ApplicationLogic.Abstractions
 {
-    interface IAdministratorRepository: IRepository<Administrator>
+    public interface IAdministratorRepository : IRepository<Administrator>
     {
+        Administrator GetAdministratorByAdministratorId(Guid administratorIdGuid);
     }
 }

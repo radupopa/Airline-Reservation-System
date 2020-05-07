@@ -1,9 +1,10 @@
-﻿@model FlyArc - Airline Reservation System.Models.Customers.CustomerPassengersViewModel;
+﻿@model List<FlyArcARS.ApplicationLogic.Data.Passenger>
+
 @{
     ViewData["Title"] = "Index";
 }
 <h1>Index</h1>
-@foreach (var course in Model.Passengers)
+@foreach (var Passengers in Model)
 {
     <div>
         @Passengers.FirstName

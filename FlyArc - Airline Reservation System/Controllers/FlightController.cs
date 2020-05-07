@@ -11,10 +11,15 @@ using Microsoft.AspNetCore.Mvc;
     [Authorize]
 public class FlightController : Controller
 {
-    private readonly FlightsService flightsService;
+    private readonly FlightService flightsService;
+    private string FlightId;
+    private IEnumerable<Ticket> flightTickets;
+
+    public FlightService FlightService { get; }
+
     public FlightController(FlightService flightsService)
     {
-        this.flightservice = flightsService;
+        this.FlightService = flightsService;
     }
 
     public ActionResult Index()
@@ -22,7 +27,7 @@ public class FlightController : Controller
         try
         {
             var flight = flightsService.GetFlightByFlightId(FlightId);
-            var flightTicket = flightsService.GetFlightTickets(FlightId);
+            var flightTicket = flightsService.GetFlightsTickets(FlightId);
 
             return View(new FlightTicketsViewModel { Flight = flight, Tickets = flightTickets });
         }
@@ -52,7 +57,8 @@ public class FlightController : Controller
 
         try
         {
-            flightsService.AddTicket(Ticket, model.PassengerFirstName, model.PassengerLastName, model.Type);
+            var FlightId = GetFlightId();
+            FlightService.AddTicket(FlightId, model.PassengerFirstName, model.PassengerLastName, model.Type);
             return Redirect(Url.Action("Index", "Flight"));
         }
         catch (EntityNotFoundException)
@@ -62,6 +68,8 @@ public class FlightController : Controller
 
     }
 
-
-
+    private Flight GetFlightId()
+    {
+        return FlightService.GetFlightByFlightId(FlightId);
+    }
 }

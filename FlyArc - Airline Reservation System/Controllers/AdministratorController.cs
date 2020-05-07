@@ -11,7 +11,11 @@ using Microsoft.AspNetCore.Mvc;
 public class AdministratorController : Controller
 {
     private readonly AdministratorService administratorsService;
-    public AdministratorController(AdministratorsService administratorsService)
+    private string administratorId;
+    private string CustomerId;
+    private object UserId;
+
+    public AdministratorController(AdministratorService administratorsService)
     {
         this.administratorsService = administratorsService;
     }
@@ -23,7 +27,7 @@ public class AdministratorController : Controller
             var administrator = administratorsService.GetAdministratorByAdministratorId(administratorId);
             var administratorCustomers = administratorsService.GetAdministratorCustomers(administratorId);
 
-            return View(new AdministratorCustomersViewModel { Administrator = administrator, Customer = administratorCustomer });
+            return View(new AdministratorCustomersViewModel { Administrator = administrator, Customers = administratorCustomers });
         }
         catch (EntityNotFoundException)
         {
@@ -51,7 +55,7 @@ public class AdministratorController : Controller
 
         try
         {
-            administratorsService.AddCustomer(Customer, model.UserName, model.Password);
+            administratorsService.AddCustomer(CustomerId, UserId, model.UserName, model.Password);
             return Redirect(Url.Action("Index", "Administrator"));
         }
         catch (EntityNotFoundException)

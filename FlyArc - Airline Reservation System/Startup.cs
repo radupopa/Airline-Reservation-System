@@ -15,10 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using FlyArcARS.EFDataAccess;
 using FlyArcARS.ApplicationLogic.Abstractions;
 using FlyArcARS.ApplicationLogic.Services;
-using CustomerManager.ApplicationLogic.Services;
 
-namespace FlyArc___Airline_Reservation_System
-{
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -47,27 +45,53 @@ namespace FlyArc___Airline_Reservation_System
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<CustomerRepository>();
+
             services.AddScoped<IFlightRepository, FlightRepository>();
             services.AddScoped<IAdministratorRepository, AdministratorRepository>();
+            services.AddScoped<IdentityRole>();
 
-            services.AddScoped<CustomerService>();
-            services.AddScoped<AdminService>();
+
+        services.AddScoped<CustomerService>();
+            services.AddScoped<AdministratorService>();
             services.AddScoped<FlightService>();
 
 
 
-            services.AddControllersWithViews();
-            services.AddRazorPages()
-                    .AddRazorRuntimeCompilation();
+        //services.AddControllersWithViews();
+        services.AddMvc();
+           // services.AddRazorPages()
+           //         .AddRazorRuntimeCompilation();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    private async Task CreateUserRoles(IServiceProvider serviceProvider)
+    {
+        var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+        IdentityResult roleResult;
+        //Adding Admin Role
+        var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+        if (!roleCheck)
+        {
+            //create the roles and seed them to the database
+            roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+        }
+        //Assign Admin role to the main User here we have given our newly registered 
+        //login id for Admin management
+        IdentityUser user = await UserManager.FindByEmailAsync("admin@admin.com");
+        var User = new IdentityUser();
+        await UserManager.AddToRoleAsync(user, "Admin");
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -92,6 +116,7 @@ namespace FlyArc___Airline_Reservation_System
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
+
+           // CreateUserRoles(services).Wait();
     }
-}
+    }

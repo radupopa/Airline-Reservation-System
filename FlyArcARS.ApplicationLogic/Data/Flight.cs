@@ -14,5 +14,10 @@ namespace FlyArcARS.ApplicationLogic.Data
         public int Time { get; set; }
 
         public ICollection<Ticket> Tickets { get; set; }
+
+        public static implicit operator Flight(Customer v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

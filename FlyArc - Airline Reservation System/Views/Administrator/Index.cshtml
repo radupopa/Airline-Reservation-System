@@ -1,9 +1,10 @@
-﻿@model FlyArc - Airline Reservation System.Models.Administrator.AdministratorCustomerViewModel;
+﻿@model List<FlyArcARS.ApplicationLogic.Data.Administrator>
+
 @{
     ViewData["Title"] = "Index";
 }
 <h1>Index</h1>
-@foreach (var course in Model.Flight)
+@foreach (var Administrator in Model)
 {
     <div>
         @Administrator.FullName

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FlyArcARS.ApplicationLogic.Services;
+//using FlyArcARS.ApplicationLogic.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 public class CustomerController : Controller
 {
     private readonly UserManager<IdentityUser> userManager;
-    private readonly CustomersService customersService;
+    private readonly CustomerService customersService;
     public CustomerController(UserManager<IdentityUser> userManager, CustomerService customersService)
     {
         this.customersService = customersService;
@@ -39,13 +40,13 @@ public class CustomerController : Controller
     }
 
     [HttpGet]
-    public IActionResult AddCourse()
+    public IActionResult AddPassenger()
     {
         return View();
     }
 
     [HttpPost]
-    public IActionResult AddCourse([FromForm]CustomerAddPassengersViewModel model)
+    public IActionResult AddPassenger([FromForm]CustomerAddPassengerViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -55,7 +56,7 @@ public class CustomerController : Controller
         try
         {
             var userId = userManager.GetUserId(User);
-            customersService.AddPassengers(userId, model.FirstName, model.LastName, model.Mail, model.Address, model.City, model.Country, model.Age);
+            customersService.AddPassenger(userId, model.FirstName, model.LastName, model.Address, model.City, model.Country, model.Age);
             return Redirect(Url.Action("Index", "Customer"));
         }
         catch (EntityNotFoundException)

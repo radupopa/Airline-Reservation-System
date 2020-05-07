@@ -1,5 +1,4 @@
-﻿using CourseManager.ApplicationLogic.Abstractions;
-using FlyArcARS.ApplicationLogic.Abstractions;
+﻿using FlyArcARS.ApplicationLogic.Abstractions;
 using FlyArcARS.EFDataAccess;
 using System;
 using System.Collections.Generic;

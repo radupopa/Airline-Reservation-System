@@ -12,5 +12,6 @@ namespace FlyArcARS.ApplicationLogic.Data
         public string Password { get; set; }
 
         public ICollection<Passenger> Passengers { get; set; }
+        public Administrator Administrator { get; set; }
     }
 }

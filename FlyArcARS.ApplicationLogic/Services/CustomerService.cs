@@ -9,8 +9,10 @@ namespace FlyArcARS.ApplicationLogic.Services
 {
     public class CustomerService
     {
-        private ICustomerRepository customerRepository;
-        private IPassengerRepository passengerRepository;
+        public ICustomerRepository customerRepository;
+        public IPassengerRepository passengerRepository;
+        private Guid userIdGuid;
+        private Passenger passenger;
 
         public CustomerService(ICustomerRepository customerRepository, IPassengerRepository passengerRepository)
         {
@@ -45,11 +47,21 @@ namespace FlyArcARS.ApplicationLogic.Services
             }
 
             return passengerRepository.GetAll()
-                                .Where(Passenger => Passenger.Customer != null && passenger.Customer.UserId == userIdGuid)
+                                .Where(Passenger => Passenger.customer != null && passenger.customer.UserId == userIdGuid)
                                 .AsEnumerable();
         }
 
-        public void AddPassenger(string userId, string passFirstName, string passLastName, string passMail, string passAddress, string passCity, string passCountry, string passAge)
+        public void AddPassenger(string userId, string firstName, string lastName, string address, string city, string country, int age)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddPassenger(string userId, string firstName, string lastName, string address, string city, string country, string age)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddPassenger(string userId, string passFirstName, string passLastName, string passMail, string passAddress, string passCity, string passCountry, int passAge)
         {
             Guid userIdGuid = Guid.Empty;
             if (!Guid.TryParse(userId, out userIdGuid))
@@ -61,7 +73,7 @@ namespace FlyArcARS.ApplicationLogic.Services
             {
                 throw new EntityNotFoundException(userIdGuid);
             }
-            passengerRepository.Add(new Passenger() { PassengerId = Guid.NewGuid(), FirstName = passFirstName, LastName = passLastName, Address = passAddress, Age = passAge, City = passCity, Country = passCountry, Mail = passMail, Customer = customer });
+            passengerRepository.Add(new Passenger() { PassengerId = Guid.NewGuid(), FirstName = passFirstName, LastName = passLastName, Address = passAddress, Age = passAge, City = passCity, Country = passCountry, Mail = passMail });
         }
     }
 }
