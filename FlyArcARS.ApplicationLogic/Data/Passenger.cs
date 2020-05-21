@@ -16,7 +16,7 @@ namespace FlyArcARS.ApplicationLogic.Data
         public int Age { get; set; }
 
         public Customer customer { get; set; }
-        public object Customer { get; internal set; }
+       // public object Customer { get; internal set; }
         public ICollection<Ticket> Tickets { get; set; }
     }
 }

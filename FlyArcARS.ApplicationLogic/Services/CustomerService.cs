@@ -11,10 +11,11 @@ namespace FlyArcARS.ApplicationLogic.Services
     {
         public ICustomerRepository customerRepository;
         public IPassengerRepository passengerRepository;
+        public IAdministratorRepository administratorRepository;
         private Guid userIdGuid;
         private Passenger passenger;
 
-        public CustomerService(ICustomerRepository customerRepository, IPassengerRepository passengerRepository)
+        public CustomerService(ICustomerRepository customerRepository, IPassengerRepository passengerRepository, IAdministratorRepository administratorRepository)
         {
             this.customerRepository = customerRepository;
             this.passengerRepository = passengerRepository;
